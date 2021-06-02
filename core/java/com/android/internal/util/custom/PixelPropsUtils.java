@@ -30,6 +30,7 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChange;
     private static final Map<String, Object> propsToChangePixel3;
+    private static final Map<String, Object> propsToChangeOGPixelXL;
 
     private static final String[] packagesToChange = {
         "com.google.android.apps.safetyhub",
@@ -43,6 +44,10 @@ public class PixelPropsUtils {
         "com.google.android.googlequicksearchbox"
     };
 
+    private static final String[] packagesToChangeOGPixelXL = {
+            "com.google.android.apps.photos"
+    };
+
     static {
         propsToChange = new HashMap<>();
         propsToChange.put("BRAND", "google");
@@ -53,6 +58,13 @@ public class PixelPropsUtils {
         propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.210605.005/7349499:user/release-keys");
         propsToChangePixel3 = new HashMap<>();
         propsToChangePixel3.put("MODEL", "Pixel 3 XL");
+        propsToChangeOGPixelXL = new HashMap<>();
+        propsToChangeOGPixelXL.put("BRAND", "google");
+        propsToChangeOGPixelXL.put("MANUFACTURER", "Google");
+        propsToChangeOGPixelXL.put("DEVICE", "marlin");
+        propsToChangeOGPixelXL.put("PRODUCT", "marlin");
+        propsToChangeOGPixelXL.put("MODEL", "Pixel XL");
+        propsToChangeOGPixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
     public static void setProps(String packageName) {
@@ -74,6 +86,16 @@ public class PixelPropsUtils {
                 Log.d(TAG, "Defining props for: " + packageName);
             }
             for (Map.Entry<String, Object> prop : propsToChangePixel3.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
+                setPropValue(key, value);
+            }
+        }
+        if (Arrays.asList(packagesToChangeOGPixelXL).contains(packageName)){
+            if (DEBUG){
+                Log.d(TAG, "Defining props for: " + packageName);
+            }
+            for (Map.Entry<String, Object> prop : propsToChangeOGPixelXL.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 setPropValue(key, value);
