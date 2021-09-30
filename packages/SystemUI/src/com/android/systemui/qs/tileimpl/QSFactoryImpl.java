@@ -42,6 +42,7 @@ import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.PowerShareTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.SensorPrivacyTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
@@ -86,6 +87,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
+    private final Provider<PowerShareTile> mPowerShareTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -115,6 +117,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider) {
+            Provider<PowerShareTile> powerShareTileProvider,
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -140,6 +143,7 @@ public class QSFactoryImpl implements QSFactory {
         mCaffeineTileProvider = caffeineTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
+        mPowerShareTileProvider = powerShareTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -199,6 +203,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHeadsUpTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
+            case "powershare":
+                return mPowerShareTileProvider.get();
         }
 
         // Custom tiles
