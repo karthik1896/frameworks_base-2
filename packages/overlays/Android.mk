@@ -26,13 +26,12 @@ LOCAL_REQUIRED_MODULES := \
 	DisplayCutoutEmulationTallOverlay \
 	DisplayCutoutEmulationWaterfallOverlay \
 	FontNotoSerifSourceOverlay \
-	IconShapeCircleOverlay \
 	NavigationBarMode3ButtonOverlay \
 	NavigationBarModeGesturalOverlay \
 	NavigationBarModeGesturalOverlayNarrowBack \
 	NavigationBarModeGesturalOverlayWideBack \
 	NavigationBarModeGesturalOverlayExtraWideBack \
-    OneHandedModeGesturalOverlay \
+        OneHandedModeGesturalOverlay \
 	preinstalled-packages-platform-overlays.xml
 
 include $(BUILD_PHONY_PACKAGE)
