@@ -22,6 +22,7 @@ import static com.android.systemui.statusbar.policy.DevicePostureController.DEVI
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
